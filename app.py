@@ -13,6 +13,10 @@ def index():
 def ecommerce():
     return render_template('ecommerce.html')
 
-# تشغيل التطبيق (هذا السطر مهم للسيرفر المحلي فقط)
+# تشغيل التطبيق (معدل للعمل على Render)
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(
+        host='0.0.0.0',  # يجعل الخادم قابل للوصول من الخارج
+        port=10000,      # البورت الذي يتطلبه Render
+        debug=False      # يجب أن يكون False في البيئة الإنتاجية
+    )
